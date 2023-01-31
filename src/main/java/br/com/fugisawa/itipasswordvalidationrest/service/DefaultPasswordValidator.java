@@ -5,12 +5,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class DefaultPasswordValidator implements PasswordValidator {
 
-    private br.com.fugisawa.passwordvalidator.PasswordValidator passwordValidator;
+    private br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator passwordValidator;
 
     public DefaultPasswordValidator() {
-        this.passwordValidator = br.com.fugisawa.passwordvalidator.PasswordValidator.builder()
+        this.passwordValidator = br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator.builder()
                 .withMinLength(9)
-                .withSpecialChar(br.com.fugisawa.passwordvalidator.PasswordValidator.DEFAULT_SPECIAL_CHARACTERS)
+                .withSpecialChar(br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator.DEFAULT_SPECIAL_CHARACTERS)
                 .withDigit()
                 .withUpperCase()
                 .withLowerCase()
