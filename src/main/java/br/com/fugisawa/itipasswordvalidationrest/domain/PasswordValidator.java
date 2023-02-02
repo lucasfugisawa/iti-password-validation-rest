@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class PasswordValidator {
 
-    public static final String DEFAULT_SPECIAL_CHARACTERS = "!@#$%^&*()-+";
+    public static final CharSequence DEFAULT_SPECIAL_CHARACTERS = "!@#$%^&*()-+";
 
     public static class DefaultPredicates {
         public static final Predicate<String> HAS_UPPERCASE = (password) -> password.matches(".*[A-Z].*");
@@ -59,12 +59,12 @@ public class PasswordValidator {
             return this;
         }
 
-        public PasswordValidatorBuilder withSpecialChar(String listOfSpecialChars) {
-            String specialChars = (listOfSpecialChars != null) ? listOfSpecialChars : DEFAULT_SPECIAL_CHARACTERS;
+        public PasswordValidatorBuilder withSpecialChar(CharSequence specialChars) {
+            CharSequence finalSpecialChars = (specialChars != null) ? specialChars : DEFAULT_SPECIAL_CHARACTERS;
             Predicate<String> p = new Predicate<String>() {
                 @Override
                 public boolean test(String s) {
-                    return s.matches(".*[" + listOfSpecialChars + "].*");
+                    return s.matches(".*[" + finalSpecialChars + "].*");
                 }
             };
             this.predicates.add(p);
