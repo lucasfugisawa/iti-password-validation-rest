@@ -4,19 +4,14 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile({"strongValidation", "default"})
-public class DefaultPasswordValidator implements PasswordValidator {
+@Profile("weakValidation")
+public class WeakPasswordValidator implements PasswordValidator {
 
     private final br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator passwordValidator;
 
-    public DefaultPasswordValidator() {
+    public WeakPasswordValidator() {
         this.passwordValidator = br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator.builder()
-                .withMinLength(9)
-                .withSpecialChar(br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator.DEFAULT_SPECIAL_CHARACTERS)
-                .withDigit()
-                .withUpperCase()
-                .withLowerCase()
-                .withNoRepeatedChars()
+                .withMinLength(4)
                 .build();
     }
 
