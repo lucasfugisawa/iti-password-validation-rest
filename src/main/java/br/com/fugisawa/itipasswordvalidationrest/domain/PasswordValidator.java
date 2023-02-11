@@ -14,6 +14,7 @@ public class PasswordValidator {
         public static final Predicate<String> HAS_LOWERCASE = (password) -> password.matches(".*[a-z].*");
         public static final Predicate<String> HAS_DIGIT = (password) -> password.matches(".*[0-9].*");
         public static final Predicate<String> NO_REPEATED_CHARS = (password) -> !password.matches(".*(.).*\\1.*");
+        public static final Predicate<String> NO_WHITE_SPACES = (password) -> !password.matches(".*\\s.*");
     }
 
     private Set<Predicate> predicates = new HashSet<>();
@@ -88,6 +89,11 @@ public class PasswordValidator {
 
         public PasswordValidatorBuilder withNoRepeatedChars() {
             this.predicates.add(DefaultPredicates.NO_REPEATED_CHARS);
+            return this;
+        }
+
+        public PasswordValidatorBuilder withNoWhiteSpaces() {
+            this.predicates.add(DefaultPredicates.NO_WHITE_SPACES);
             return this;
         }
 

@@ -23,6 +23,7 @@ class PasswordValidatorTest {
                 .withUpperCase()
                 .withLowerCase()
                 .withNoRepeatedChars()
+                .withNoWhiteSpaces()
                 .build();
     }
 
@@ -34,6 +35,7 @@ class PasswordValidatorTest {
         assertFalse(this.validator.validate("$Abcdee1")); // repeated char
         assertFalse(this.validator.validate("$abcdef1")); // no uppercase
         assertFalse(this.validator.validate("$ABCDEF1")); // no lowercase
+        assertFalse(this.validator.validate("$Abcde 1")); // white space
         assertFalse(this.validator.validate("$Qwertyuiopasdfghjklz1234")); // length > 24
     }
 

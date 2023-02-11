@@ -17,6 +17,7 @@ public class DefaultPasswordValidator implements PasswordValidator {
                 .withUpperCase()
                 .withLowerCase()
                 .withNoRepeatedChars()
+                .withNoWhiteSpaces()
                 .build();
     }
 

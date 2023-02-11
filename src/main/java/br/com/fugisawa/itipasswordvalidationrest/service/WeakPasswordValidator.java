@@ -12,6 +12,7 @@ public class WeakPasswordValidator implements PasswordValidator {
     public WeakPasswordValidator() {
         this.passwordValidator = br.com.fugisawa.itipasswordvalidationrest.domain.PasswordValidator.builder()
                 .withMinLength(4)
+                .withNoWhiteSpaces()
                 .build();
     }
 
