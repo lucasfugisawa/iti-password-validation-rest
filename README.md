@@ -1,4 +1,4 @@
-# Desafio Back-end do @itidigital: API para validação de senhas
+# Implementação do desafio de back-end do @itidigital: API para validação de senhas
 
 Esta é uma possível solução para o desafio de back-end encontrado em: https://github.com/itidigital/backend-challenge
 
