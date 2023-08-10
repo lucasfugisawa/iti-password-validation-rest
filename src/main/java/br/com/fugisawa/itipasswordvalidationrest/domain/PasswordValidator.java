@@ -39,35 +39,20 @@ public class PasswordValidator {
         }
 
         public PasswordValidatorBuilder withMinLength(int minLength) {
-            Predicate<String> p = new Predicate<String>() {
-                @Override
-                public boolean test(String s) {
-                    return s.length() >= minLength;
-                }
-            };
+            Predicate<String> p = s -> s.length() >= minLength;
             this.predicates.add(p);
             return this;
         }
 
         public PasswordValidatorBuilder withMaxLength(int maxLength) {
-            Predicate<String> p = new Predicate<String>() {
-                @Override
-                public boolean test(String s) {
-                    return s.length() <= maxLength;
-                }
-            };
+            Predicate<String> p = s -> s.length() <= maxLength;
             this.predicates.add(p);
             return this;
         }
 
         public PasswordValidatorBuilder withSpecialChar(CharSequence specialChars) {
             CharSequence finalSpecialChars = (specialChars != null) ? specialChars : DEFAULT_SPECIAL_CHARACTERS;
-            Predicate<String> p = new Predicate<String>() {
-                @Override
-                public boolean test(String s) {
-                    return s.matches(".*[" + finalSpecialChars + "].*");
-                }
-            };
+            Predicate<String> p = s -> s.matches(".*[" + finalSpecialChars + "].*");
             this.predicates.add(p);
             return this;
         }
@@ -109,8 +94,7 @@ public class PasswordValidator {
             return false;
         }
 
-        boolean matches = true;
-        for (Predicate predicate : predicates) {
+        for (Predicate<String> predicate : predicates) {
             if (!predicate.test(password)) {
                 return false;
             }
