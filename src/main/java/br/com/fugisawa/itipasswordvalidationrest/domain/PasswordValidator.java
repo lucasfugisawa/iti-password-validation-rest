@@ -17,7 +17,7 @@ public class PasswordValidator {
         public static final Predicate<String> NO_WHITE_SPACES = (password) -> !password.matches(".*\\s.*");
     }
 
-    private Set<Predicate> predicates = new HashSet<>();
+    private Set<Predicate<String>> predicates = new HashSet<>();
 
     private PasswordValidator() {
         super();
@@ -29,7 +29,7 @@ public class PasswordValidator {
 
     public static class PasswordValidatorBuilder {
 
-        private final Set<Predicate> predicates = new HashSet<>();
+        private final Set<Predicate<String>> predicates = new HashSet<>();
 
         public PasswordValidatorBuilder withPredicate(Predicate<String> predicate) {
             if (predicate != null) {
