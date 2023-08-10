@@ -7,7 +7,7 @@ Since I solved the challenge for fun (I didn't apply for the related opportuniti
 If you have any questions, inquiries, suggestions, critiques, etc., feel free to get in touch with me.
 ## Downloading and Running the Application Locally
 
-- ENsure you have a [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/) of your preference installed and configured.
+- Ensure you have a `git` client and a [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/) of your preference installed and configured.
 
 - Clone this repository: `git clone https://github.com/lucasfugisawa/iti-password-validation-rest.git`
 
