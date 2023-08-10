@@ -23,7 +23,7 @@ If you have any questions, inquiries, suggestions, critiques, etc., feel free to
 
 Contributions are welcome! =)
 
-Please, refer to `CONTRIBUTING.md` for instructions.
+Please, refer to [CONTRIBUTING.md](CONTRIBUTING.md) for instructions.
 ## License
 
 [MIT](LICENSE.md)
