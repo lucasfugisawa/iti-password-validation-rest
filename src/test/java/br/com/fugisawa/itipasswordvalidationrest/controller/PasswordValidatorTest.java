@@ -2,6 +2,7 @@ package br.com.fugisawa.itipasswordvalidationrest.controller;
 
 import br.com.fugisawa.itipasswordvalidationrest.service.PasswordValidator;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -29,6 +30,7 @@ class PasswordValidatorTest {
     }
 
     @Test
+    @DisplayName("/password/validate/{password} endpoint should return true for valid passwords.")
     void validatePassword_ValidPassword_ReturnsTrue() throws Exception {
         String validPassword = "StrongPassword123!";
         when(passwordValidator.validate(validPassword)).thenReturn(true);
@@ -40,6 +42,7 @@ class PasswordValidatorTest {
     }
 
     @Test
+    @DisplayName("/password/validate/{password} endpoint should return false for invalid passwords.")
     void validatePassword_InvalidPassword_ReturnsFalse() throws Exception {
         String invalidPassword = "WeakPassword";
         when(passwordValidator.validate(invalidPassword)).thenReturn(false);
